@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * @file
+ * Contiene funciones de instalación y actualización del Forms Module.
+ */
+
+use Drupal\Core\Database\Database;
+
+/**
+* Implements hook_schema().
+*/
+function forms_module_schema() {
+
+  $schema['forms_module_contact'] = array(
+    'description' => 'Stores contact form data',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE, 
+        'description' => "ID autoincrement",
+      ),
+      'first_name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'First name',
+      ),
+      'last_name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Last name',
+      ),
+      'email' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Email',
+      ),
+      'tel_number' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Telephone number',
+      ),
+      'msg_subject' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Message subject',
+      ),
+      'msg_body' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Message body',
+      ),
+      'uid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The uid of the user who submitted the form.',
+      ),
+      'ip' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'User IP',
+      ),
+      'timestamp' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Unix timestamp indicating when the form was submitted.',
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+
+  return $schema;
+}

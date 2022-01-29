@@ -1,0 +1,7 @@
+forms_module.contact:
+  path: '/mismodulos/form/contact'
+  defaults:
+    _form: '\Drupal\forms_module\Forms\Contact'
+    _title: 'Contact Form'
+  requirements:
+    _permission: 'access content'

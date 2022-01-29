@@ -1,0 +1,7 @@
+<?php
+
+/**
+ * @file
+ * Module file for Forms module
+ * Este módulo crea un formulario de contacto.
+ */
